@@ -70,7 +70,7 @@ public class CreateSub_Tasks extends BaseClass {
 
         WebDriverWait wait = new WebDriverWait(driver, timeout, 500);
         try {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("")));
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='modal-content']")));
             return true;
         } catch (TimeoutException te) {
             // te.printStackTrace();
