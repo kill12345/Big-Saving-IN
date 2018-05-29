@@ -16,12 +16,12 @@ public class BaseClass {
     }
 
     public void driverClose(WebDriver driver){
-        logger.info("driverClose");
+        logger.info("CALLED:driverClose()");
         driver.quit();
     }
 
     public WebDriver getDriverInstance()throws Exception{
-        logger.info("getDriverInstance");
+        logger.info("CALLED:getDriverInstance()");
         WebDriver driver = null;
 
         String browser = "firefox";
@@ -47,6 +47,7 @@ public class BaseClass {
     }
 
     public static String getRandomString(int length,someWords mode) {
+        logger.info("CALLED:getRandomString()");
 
         StringBuffer buffer = new StringBuffer();
         String characters = "";

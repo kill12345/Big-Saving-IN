@@ -15,7 +15,7 @@ public class Create_Task {
     public static  String characters =       "//input[@id='new_task']";
 
     public boolean isElement_MyTask_Present(WebDriver driver) {
-        logger.info("isElement_MyTask_Present");
+        logger.info("CALLED:isElement_MyTask_Present()");
 
         try {
             driver.findElement(By.xpath(myTask_Present));
@@ -29,7 +29,7 @@ public class Create_Task {
     }
 
     public boolean isUserName_MassageDisplayed(WebDriver driver) {
-        logger.info("isUserName_MassageDisplayed");
+        logger.info("CALLED:isUserName_MassageDisplayed()");
 
         try {
             driver.findElement(By.xpath(massageDisplayed));
@@ -49,7 +49,7 @@ public class Create_Task {
 
        public boolean is_SomeCharactersPresent(){
         WebDriver driver = new FirefoxDriver();
-		logger.info("is_SomeCharactersPresent()");
+		logger.info("CALLED:is_SomeCharactersPresent()");
                 boolean result = driver.findElements(By.xpath("//a[@class ='ng-scope ng-binding editable editable-click']")).size() > 0;
                 logger.info("result: " + result);
                 return result;
@@ -57,7 +57,7 @@ public class Create_Task {
 
 
     public void addNewTask(){
-        logger.info("addNewTask");
+        logger.info("CALLED:addNewTask()");
         WebDriver driver = new FirefoxDriver();
         driver.findElement(By.xpath("//span[@ng-click ='addTask()']/parent::before")).click();
 

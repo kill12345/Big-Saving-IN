@@ -12,6 +12,7 @@ public  class PropertiesUtility {
 
 
     private static void loadProperties() {
+        logger.info("CALLED:loadProperties()");
             try {
                 FileInputStream objFile = new FileInputStream(propertiesFilePath);
                 property.load(objFile);
@@ -26,6 +27,7 @@ public  class PropertiesUtility {
          * @return
          */
         public static String getProperty(String propertyName){
+            logger.info("CALLED:getProperty()");
             loadProperties();
             return property.getProperty(propertyName);
         }

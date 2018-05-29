@@ -22,12 +22,12 @@ public class CreateSub_Tasks extends BaseClass {
     BaseClass baseClass = new BaseClass();
     String    notes = baseClass.getRandomString(249, someWords.ALPHA);
 
-    git remote add origin https://Doberman12345@bitbucket.org/Doberman12345/qa_assignment-for-avenue-code.git
+
 
 
 
     public boolean isButton_Manage_Subtasks_Present(WebDriver driver) {
-        logger.info("isButton_Manage_Subtasks_Present()");
+        logger.info("CALLED:isButton_Manage_Subtasks_Present()");
 
         try {
             driver.findElement(subtaskButton);
@@ -96,23 +96,29 @@ public class CreateSub_Tasks extends BaseClass {
     }
 
     public void setSomeSubTask_Description_249(WebDriver driver) {
+        logger.info("CALLED:setSomeSubTask_Description_249()");
         BaseClass baseClass = new BaseClass();
         driver.findElement(subTaskDescription).sendKeys(notes);
 
     }
     public String getSomeTaskDescription() {
+        logger.info("CALLED:getSomeTaskDescription()");
         return notes;
     }
 
 
     public void setDateAndtime(WebDriver driver) {
+        logger.info("CALLED:setDateAndtime()");
         driver.findElement(By.id("//*[@id=dueDate]")).sendKeys(data);
 
     }
 
-    public String getDateAndTime(){ return data; }
+    public String getDateAndTime(){
+        logger.info("CALLED:getDateAndTime()");
+        return data; }
 
     public boolean isAddSubtaskButtonPresent(WebDriver driver) {
+        logger.info("CALLED:isAddSubtaskButtonPresent()");
         try {
             driver.findElement(addSubTaskButton);
             return true;
@@ -124,11 +130,13 @@ public class CreateSub_Tasks extends BaseClass {
     }
 
     public void clickAddSubtaskButton(WebDriver driver){
+        logger.info("CALLED:clickAddSubtaskButton()");
         driver.findElement(addSubTaskButton).click();
 
     }
 
     public String subtasksWereAdded (){
+        logger.info("CALLED:subtasksWereAdded()");
         return notes;
     }
 

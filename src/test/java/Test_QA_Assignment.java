@@ -6,7 +6,7 @@ import static org.testng.Assert.assertTrue;
 
 public class Test_QA_Assignment extends BaseClass {
 
-    String data = "0/02/28";
+    String    data      = "0/02/28";
     BaseClass baseClass = new BaseClass();
     public String notes = baseClass.getRandomString(249, someWords.ALPHA);
 
@@ -28,17 +28,20 @@ public class Test_QA_Assignment extends BaseClass {
         assertEquals(create_task.isUserName_MassageDisplayed(driver),true);
 
         //Add and verify new task
+
         create_task.setSomeCharacters(driver);
         assertTrue(create_task.is_SomeCharactersPresent());
         create_task.addNewTask();
 
          // Manage sub Task
+
         CreateSub_Tasks createSub_tasks = new CreateSub_Tasks();
         assertTrue(createSub_tasks.isButton_Manage_Subtasks_Present(driver));
         assertEquals(createSub_tasks.isButton_Manage_Subtasks_Present(driver),true);
         createSub_tasks.clickButtonManageSubtasks();
 
         // Sub Tasks Form
+
         createSub_tasks.waitForManageSubtasks_Form_ToBecomeVisible(1,driver);
         assertEquals(createSub_tasks.is_ID_And_The_Task_Description_Present(driver),true);
         createSub_tasks.setSomeSubTask_Description_249(driver);
@@ -54,20 +57,11 @@ public class Test_QA_Assignment extends BaseClass {
         createSub_tasks.clickAddSubtaskButton(driver);
 
 
-        //Subtasks that were added should be appended on the bottom part of the modal dialog
+        //Sub tasks that were added should be appended on the bottom part of the modal dialog
 
         assertEquals(createSub_tasks.subtasksWereAdded(),notes);
 
         driver.close();
-
-
-
-
-
-
-
-
-
 
 
     }
