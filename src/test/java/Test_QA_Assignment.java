@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Test_QA_Assignment extends BaseClass {
@@ -14,23 +15,38 @@ public class Test_QA_Assignment extends BaseClass {
     public void firstTest() throws Exception {
 
         WebDriver driver = new ChromeDriver();
-
         Main_Page log_in = new Main_Page();
+
         log_in.navigate_To_Page_and_Chek_Title(driver);
 
         log_in.isHome_Insurance_Present(driver);
-
         log_in.isHomeInsuranceItemPresent(driver);
 
-        log_in.isTwitterButtonPresent(driver);
+         Assert.assertTrue(log_in.isHomeInsuranceItemPresent(driver));
 
-        log_in.isFacebookButtnPresentat(driver);
+         Assert.assertTrue(log_in.isTwitterButtonPresent(driver));
+
+         Assert.assertTrue(log_in.isFacebookButtonPresenta(driver));
 
         log_in.isBigSavingInsuranceTextPresent(driver);
-
         log_in.getAlldropDownTypeOfInsurance(driver);
 
-        log_in.celectedDropDownTypeOfInsurance(driver);
+        //Add  new Type of Insurance
+        log_in.celesteDropDownTypeOfInsurance(driver);
+
+        log_in.isGet_QuoteNowButtonPresent(driver);
+
+        log_in.clickGet_QuoteNowButton(driver);
+        pause(1);
+
+        // Verify Get Quote_Home Type form
+
+         GetQuote_HomeType getQuote_homeType = new GetQuote_HomeType();
+         getQuote_homeType.chek_Title(driver);
+          Assert.assertTrue(getQuote_homeType.isTwitterButtonPresent(driver));
+          Assert.assertTrue(getQuote_homeType.isFacebookButtonPresent(driver));
+          Assert.assertTrue(getQuote_homeType.isTellPresent(driver));
+         getQuote_homeType.getAllTypeOfInsurance(driver);
 
         driver.close();
 
@@ -38,33 +54,6 @@ public class Test_QA_Assignment extends BaseClass {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-//
 //        assertTrue(create_task.isUserName_MassageDisplayed(driver));
 //        assertTrue(create_task.isElement_MyTask_Present(driver));
 //        assertEquals(create_task.isUserName_MassageDisplayed(driver),true);
@@ -102,8 +91,6 @@ public class Test_QA_Assignment extends BaseClass {
 //        //Sub tasks that were added should be appended on the bottom part of the modal dialog
 //
 //        assertEquals(createSub_tasks.subtasksWereAdded(),notes);
-
-
 
 
     }

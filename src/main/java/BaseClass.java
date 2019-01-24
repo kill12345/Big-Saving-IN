@@ -11,7 +11,7 @@ public class BaseClass {
     private static  Logger logger = Logger.getLogger(GLOBAL_LOGGER_NAME);
 
     public BaseClass(){
-        System.setProperty("webdriver.gecko.driver", "/Users/stepanmisiruk/rw-workspace/QA_Assignment/src/main/resources/browsers/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "./chromedriver.exe");
 
     }
 

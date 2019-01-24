@@ -47,11 +47,6 @@ public class CreateSub_Tasks extends BaseClass {
 
     }
 
-    /**
-     * So use to run this method  2.45.0 version of selenium and all my waits were done in this way:
-     */
-
-
     public boolean waitForManageSubtasks_Form_ToBecomeVisible(long timeout, WebDriver driver) throws Exception {
         logger.info("CALLED:waitForManageSubtasks_Form_ToBecomeVisible");
 

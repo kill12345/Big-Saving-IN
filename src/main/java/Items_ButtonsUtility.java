@@ -1,49 +1,47 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.logging.Logger;
+
 import static java.util.logging.Logger.GLOBAL_LOGGER_NAME;
 
 
 
-public class Create_Task {
+
+public class Items_ButtonsUtility {
 
     private static Logger logger = Logger.getLogger(GLOBAL_LOGGER_NAME);
     public static  String myTask_Present =   "//a[contains(text(),'My Tasks')]";
     public static  String massageDisplayed = "/html/body/div[1]/h1";
     public static  String characters =       "//input[@id='new_task']";
 
-    public boolean isElement_MyTask_Present(WebDriver driver) {
-        logger.info("CALLED:isElement_MyTask_Present()");
+    public boolean isElementPresent(WebDriver driver,By by)throws Exception {
+        logger.info("CALLED:isElementPresent()");
 
         try {
-            driver.findElement(By.xpath(myTask_Present));
-            System.out.println("My Task Present");
+            driver.findElement(by);
+            System.out.println("My Element Present");
             return true;
-
         } catch (NoSuchElementException e) {
-            System.out.println("My Task do not Present  ");
+            System.out.println("My Element NOT Present  ");
             return false;
         }
+
     }
 
-    public boolean isUserName_MassageDisplayed(WebDriver driver) {
-        logger.info("CALLED:isUserName_MassageDisplayed()");
+    public void isSomeTextPresent(WebDriver driver,By by) {
 
-        try {
-            driver.findElement(By.xpath(massageDisplayed));
-            System.out.println(" Massage Displayed ");
-            return true;
+        WebElement text = driver.findElement(by);
+        boolean isTextDisplayed = text.isDisplayed();
+        System.out.println("Is text Present:" + isTextDisplayed);
 
-        } catch (NoSuchElementException e) {
-            System.out.println("Massage do Not Displayed  ");
-            return false;
-        }
     }
 
-    public void setSomeCharacters(WebDriver driver) {
-        driver.findElement(By.id(characters)).sendKeys("hello");
+    public void clickButton(WebDriver driver ,By by) {
+      driver.findElement(by).click();
 
     }
 
