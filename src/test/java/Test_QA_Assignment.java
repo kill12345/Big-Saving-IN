@@ -7,12 +7,12 @@ public class Test_QA_Assignment extends BaseClass {
 
     String    data      = "0/02/28";
     BaseClass baseClass = new BaseClass();
-    public String notes = baseClass.getRandomString(249, someWords.ALPHA);
+    public String notes = getRandomString(249, someWords.ALPHA);
 
 
     @Test
 
-    public void firstTest() throws Exception {
+    public void firstTest () throws Exception {
 
         WebDriver driver = new ChromeDriver();
         Main_Page log_in = new Main_Page();
@@ -43,10 +43,18 @@ public class Test_QA_Assignment extends BaseClass {
 
          GetQuote_HomeType getQuote_homeType = new GetQuote_HomeType();
          getQuote_homeType.chek_Title(driver);
+
           Assert.assertTrue(getQuote_homeType.isTwitterButtonPresent(driver));
           Assert.assertTrue(getQuote_homeType.isFacebookButtonPresent(driver));
           Assert.assertTrue(getQuote_homeType.isTellPresent(driver));
+
          getQuote_homeType.getAllTypeOfInsurance(driver);
+         Assert.assertTrue(getQuote_homeType.isPrimacyPolicyElementViable(driver));
+         getQuote_homeType.clickPrivacyButton(driver);
+
+        GetQuote_HomeType.PrivacyPolicy privacyPolicy = new GetQuote_HomeType.PrivacyPolicy();
+        Assert.assertTrue( privacyPolicy.privacyPolicyTitleVisebale(driver,300));
+
 
         driver.close();
 
