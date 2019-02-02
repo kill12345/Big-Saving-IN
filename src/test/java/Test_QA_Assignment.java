@@ -53,7 +53,10 @@ public class Test_QA_Assignment extends BaseClass {
          getQuote_homeType.clickPrivacyButton(driver);
 
         GetQuote_HomeType.PrivacyPolicy privacyPolicy = new GetQuote_HomeType.PrivacyPolicy();
-        Assert.assertTrue( privacyPolicy.privacyPolicyTitleVisebale(driver,300));
+         Assert.assertTrue( privacyPolicy.privacyPolicyTitleVisebale(driver,200));
+         Assert.assertTrue(privacyPolicy.isFacebookButtonPresent(driver));
+         Assert.assertTrue(privacyPolicy.isTwitterButtonPresent(driver));
+         privacyPolicy.isSocialSecurityNumberTextPresent(driver);
 
 
         driver.close();

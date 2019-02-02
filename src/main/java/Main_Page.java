@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -24,8 +25,8 @@ public class Main_Page extends BaseClass {
     private By bigSavingInText = By.xpath("//div[@id='colophon']//*[text()='BIG SAVINGS INSURANCE AGENCY INC. ©  2005 - 2019 ']");
     private By zipCodeButton = By.xpath("//input[@type='submit']");
 
-    public void navigate_To_Page_and_Chek_Title(WebDriver driver) {
 
+    public void navigate_To_Page_and_Chek_Title(WebDriver driver) {
 
         driver.get(url);
         String title = driver.getTitle();
@@ -81,13 +82,30 @@ public class Main_Page extends BaseClass {
         logger.info("getAlldropDownTypeOfInsurance");
 
         WebElement typeIns = driver.findElement(By.xpath("//*[@id='type']"));
-         Select insuranceType = new Select(typeIns);
-
+        Select insuranceType = new Select(typeIns);
         List<WebElement> dropdown = insuranceType.getOptions();
 
         for (int i = 0; i < dropdown.size(); i++) {
             String typeIns_values = dropdown.get(i).getText();
             System.out.println(typeIns_values);
+            if (typeIns_values.contains("Select One")){
+                System.out.println("Select One is present ");
+        }else{
+                System.out.println("Select One No present");
+            }
+
+        }
+    }
+
+    public void getAlldropDownTypeOfInsuranceClick()throws Exception{
+        String [] typeIns = {"HOME INSURANCE", "RENTERS INSURANCE", "BUSINESS INSURANCE", "TRUCK INSURANCE" ,
+                "LIFE INSURANCE", "FAQ","LOCATIONS"};
+        List<String> type = Arrays.asList(typeIns);
+        for (String ins:type ){
+            if (ins.contains("FAQ")){
+                break;
+
+            }
         }
     }
 
@@ -100,7 +118,7 @@ public class Main_Page extends BaseClass {
 
         WebElement zipCode =  driver.findElement(By.xpath("//*[@id='zip']"));
 
-         boolean isZipCodePresent = zipCode.isDisplayed();
+        boolean isZipCodePresent = zipCode.isDisplayed();
         System.out.println("Is Zip Code Present:"  + isZipCodePresent);
         driver.findElement(By.xpath("//*[@id='zip']")).sendKeys("95821");
     }
@@ -108,13 +126,13 @@ public class Main_Page extends BaseClass {
     public boolean isGet_QuoteNowButtonPresent(WebDriver driver)throws Exception{
         logger.info("isGet_QuoteNowButtonPresent");
        return items_buttonsUtility.isElementPresent(driver,zipCodeButton);
-
     }
 
     public void clickGet_QuoteNowButton(WebDriver driver){
         logger.info("clickGet_QuoteNowButton");
         items_buttonsUtility.clickButton(driver,zipCodeButton);
     }
+
 
 }
 
